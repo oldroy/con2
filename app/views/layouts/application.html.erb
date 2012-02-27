@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Con2</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <title>5gsi Estimator</title>
+  <%= stylesheet_link_tag 'web_app_theme' %>
+  <%= javascript_include_tag 'application.js' %>
+  <%= csrf_meta_tag %>
 </head>
 <body>
+  <div id="container">
+    <div id="header">
+        <h1><a href="index.html">5gsi Estimator</a></h1>
+      <div id="user-navigation">
 
-<%= yield %>
+        <ul class="wat-cf">
+          <%= render 'shared/navigation' %>
+        </ul>
+      </div>
+      <div id="main-navigation">
+        <ul class="wat-cf">
+          <%=  render 'shared/dash_nav' %>
+        </ul>
+      </div>
+    </div>
+    <div id="wrapper" class="wat-cf">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+      <div id="main">
+        <div class="block" id="block-text">
+        <div class="content">
+          <div class="inner">
+            <%= yield %>
+          </div>
 
+          </div>
+        </div>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> 5gsi.</p>
+          </div>      
+        </div>
+      </div>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+    </div>    
+  </div>
 </body>
 </html>

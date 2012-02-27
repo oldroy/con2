@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Plan:</b>
+  <%= @component.plan_id %>
+</p>
+
+<p>
+  <b>Part number:</b>
+  <%= @component.part_number %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @component.description %>
+</p>
+
+<p>
+  <b>Supplier:</b>
+  <%= @component.supplier %>
+</p>
+
+<p>
+  <b>Manufacturer:</b>
+  <%= @component.manufacturer %>
+</p>
+
+<p>
+  <b>Model number:</b>
+  <%= @component.model_number %>
+</p>
+
+<p>
+  <b>Unit cost:</b>
+  <%= @component.unit_cost %>
+</p>
+
+<p>
+  <b>Loading rate:</b>
+  <%= @component.loading_rate %>
+</p>
+
+<p>
+  <b>Power draw:</b>
+  <%= @component.power_draw %>
+</p>
+
+<p>
+  <b>Lead time:</b>
+  <%= @component.lead_time %>
+</p>
+
+<p>
+  <b>Tax:</b>
+  <%= @component.tax %>
+</p>
+
+<p>
+  <b>Wbs category:</b>
+  <%= @component.wbs_category %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @component.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_component_path(@component) %> |
+<%= link_to 'Back', components_path %>

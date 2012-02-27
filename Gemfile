@@ -1,6 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
+gem 'rspec-rails', :group => [:development, :test]
+gem 'database_cleaner', :group => :test
+gem 'factory_girl_rails', :group => :test
+gem 'cucumber-rails'
+gem 'capybara'
+gem 'cancan'
+gem 'devise'
+# gem 'web-app-theme', '~> 0.8.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -21,6 +29,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
