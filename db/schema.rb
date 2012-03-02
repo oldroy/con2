@@ -11,13 +11,65 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120226214033) do
+ActiveRecord::Schema.define(:version => 20120301191531) do
+
+  create_table "assemblies", :force => true do |t|
+    t.integer  "package_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "type"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "plan_id"
+  end
+
+  create_table "components", :force => true do |t|
+    t.integer  "plan_id"
+    t.string   "part_number"
+    t.string   "description"
+    t.string   "supplier"
+    t.string   "manufacturer"
+    t.string   "model_number"
+    t.decimal  "unit_cost"
+    t.decimal  "loading_rate"
+    t.decimal  "power_draw"
+    t.integer  "lead_time"
+    t.decimal  "tax"
+    t.string   "wbs_category"
+    t.text     "notes"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.integer  "assembly_id"
+    t.integer  "component_id"
+    t.decimal  "quantity"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "wbs_category"
+  end
+
+  create_table "packages", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "plan_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "plans", :force => true do |t|
     t.string   "location"
     t.string   "version"
     t.text     "description"
     t.text     "notes"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "assembly_id"
+    t.integer  "child_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

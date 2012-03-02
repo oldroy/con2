@@ -6,15 +6,10 @@
     <th>Part number</th>
     <th>Description</th>
     <th>Supplier</th>
-    <th>Manufacturer</th>
-    <th>Model number</th>
     <th>Unit cost</th>
     <th>Loading rate</th>
     <th>Power draw</th>
     <th>Lead time</th>
-    <th>Tax</th>
-    <th>Wbs category</th>
-    <th>Notes</th>
     <th></th>
     <th></th>
     <th></th>
@@ -26,22 +21,18 @@
     <td><%= component.part_number %></td>
     <td><%= component.description %></td>
     <td><%= component.supplier %></td>
-    <td><%= component.manufacturer %></td>
-    <td><%= component.model_number %></td>
+
     <td><%= component.unit_cost %></td>
     <td><%= component.loading_rate %></td>
     <td><%= component.power_draw %></td>
     <td><%= component.lead_time %></td>
-    <td><%= component.tax %></td>
-    <td><%= component.wbs_category %></td>
-    <td><%= component.notes %></td>
-    <td><%= link_to 'Show', component %></td>
-    <td><%= link_to 'Edit', edit_component_path(component) %></td>
-    <td><%= link_to 'Destroy', component, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', plan_component_path(@plan, component) %></td>
+    <td><%= link_to 'Edit', edit_plan_component_path(@plan, component) %></td>
+    <td><%= link_to 'Destroy', [@plan, component], confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Component', new_component_path %>
+<%= link_to 'New Component', new_plan_component_path %>

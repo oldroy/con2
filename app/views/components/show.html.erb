@@ -56,15 +56,10 @@
 </p>
 
 <p>
-  <b>Wbs category:</b>
-  <%= @component.wbs_category %>
-</p>
-
-<p>
   <b>Notes:</b>
   <%= @component.notes %>
 </p>
 
 
-<%= link_to 'Edit', edit_component_path(@component) %> |
-<%= link_to 'Back', components_path %>
+<%= link_to 'Edit', edit_plan_component_path(@plan, @component) %>
+<%= link_to 'Back', plan_components_path(@plan) %>

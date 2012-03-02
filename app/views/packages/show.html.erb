@@ -1,3 +1,6 @@
+<% content_for :secondary_nav do %>
+   <% render 'show_edit' %>
+<% end %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -16,5 +19,4 @@
 </p>
 
 
-<%= link_to 'Edit', edit_package_path(@package) %> |
-<%= link_to 'Back', packages_path %>
+<%= link_to 'All Packages', plan_packages_path(@plan) %>

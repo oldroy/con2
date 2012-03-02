@@ -1,6 +1,8 @@
+<% content_for :secondary_nav do %>
+   <% render 'show_edit' %>
+<% end %>
 <h1>Editing package</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @package %> |
-<%= link_to 'Back', packages_path %>
+<%= link_to 'All Packages', plan_packages_path(@plan) %>

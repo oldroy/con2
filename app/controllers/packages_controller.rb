@@ -1,8 +1,11 @@
 class PackagesController < ApplicationController
+  layout "plan"
+  before_filter :find_plan
+  before_filter :find_package, :only => [:show, :edit, :update, :destroy]
   # GET /packages
   # GET /packages.json
   def index
-    @packages = Package.all
+    @packages = @plan.packages
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +16,7 @@ class PackagesController < ApplicationController
   # GET /packages/1
   # GET /packages/1.json
   def show
-    @package = Package.find(params[:id])
+    #probably will build an assembly manager on this page
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,17 +37,17 @@ class PackagesController < ApplicationController
 
   # GET /packages/1/edit
   def edit
-    @package = Package.find(params[:id])
+
   end
 
   # POST /packages
   # POST /packages.json
   def create
-    @package = Package.new(params[:package])
+    @package = @plan.packages.build(params[:package])
 
     respond_to do |format|
       if @package.save
-        format.html { redirect_to @package, notice: 'Package was successfully created.' }
+        format.html { redirect_to [@plan, @package], notice: 'Package was successfully created.' }
         format.json { render json: @package, status: :created, location: @package }
       else
         format.html { render action: "new" }
@@ -56,11 +59,10 @@ class PackagesController < ApplicationController
   # PUT /packages/1
   # PUT /packages/1.json
   def update
-    @package = Package.find(params[:id])
 
     respond_to do |format|
       if @package.update_attributes(params[:package])
-        format.html { redirect_to @package, notice: 'Package was successfully updated.' }
+        format.html { redirect_to [@plan, @package], notice: 'Package was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,7 +74,6 @@ class PackagesController < ApplicationController
   # DELETE /packages/1
   # DELETE /packages/1.json
   def destroy
-    @package = Package.find(params[:id])
     @package.destroy
 
     respond_to do |format|
@@ -80,4 +81,13 @@ class PackagesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+      def find_plan
+        @plan = Plan.find(params[:plan_id])
+      end
+
+      def find_package
+        @package = @plan.packages.find(params[:id])
+      end
 end

@@ -1,10 +1,14 @@
 Con2::Application.routes.draw do
 
-  resources :packages
+  resources :relationships
 
-  resources :components
-
-  resources :plans
+  resources :plans do
+    resources :packages
+    resources :components
+    resources :assemblies do
+      resources :line_items
+    end
+  end
 
   devise_for :users
   resources :users, :only => :show

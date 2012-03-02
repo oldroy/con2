@@ -8,6 +8,7 @@ gem 'cucumber-rails'
 gem 'capybara'
 gem 'cancan'
 gem 'devise'
+gem 'seed-fu'
 # gem 'web-app-theme', '~> 0.8.0'
 
 # Bundle edge Rails instead:
