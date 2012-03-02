@@ -1,0 +1,8 @@
+<% content_for :secondary_nav do %>
+   <% render 'show_edit' %>
+<% end %>
+<h1>Editing assembly</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'All Assemblies', plan_assemblies_path(@plan) %>

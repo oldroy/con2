@@ -1,0 +1,28 @@
+<% content_for :secondary_nav do %>
+   <% render 'list_new' %>
+<% end %>
+<h1>Listing assemblies</h1>
+
+<table>
+  <tr>
+    <th>Package</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @assemblies.each do |assembly| %>
+  <tr>
+    <td><%= assembly.package_id %></td>
+    <td><%= assembly.name %></td>
+    <td><%= assembly.description %></td>
+    <td><%= link_to 'Show', [@plan, assembly] %></td>
+    <td><%= link_to 'Edit', edit_plan_assembly_path(@plan, assembly) %></td>
+    <td><%= link_to 'Destroy', [@plan, assembly], confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

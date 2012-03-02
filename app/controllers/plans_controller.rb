@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  layout 'plan', :except => [ :index ]
+  layout 'plan', :except => [ :index, :new ]
   before_filter :authenticate_user!
   # GET /plans
   # GET /plans.json

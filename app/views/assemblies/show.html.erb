@@ -1,0 +1,30 @@
+<% content_for :secondary_nav do %>
+   <% render 'show_edit' %>
+<% end %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Package:</b>
+  <%= @assembly.package_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @assembly.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @assembly.description %>
+</p>
+
+
+<%= link_to 'All Assemblies', plan_assemblies_path(@plan) %>
+
+<h2>Assembly Items</h2>
+<h3>Item / Quantity  /  WBS Category</h3>
+<% @assembly.line_items.each do |item| %>
+<%= item.component.description %> | <%= item.quantity %> | <%=  item.wbs_category %>
+    | <%=  link_to "Edit", edit_plan_assembly_line_item_path(@plan, @assembly, item) %>
+    | <%= link_to 'Delete', [@plan, @assembly, item], confirm: "Are your sure?", :method => :delete %><br />
+<% end %>

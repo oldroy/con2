@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Assembly:</b>
+  <%= @relationship.assembly_id %>
+</p>
+
+<p>
+  <b>Child:</b>
+  <%= @relationship.child_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_relationship_path(@relationship) %> |
+<%= link_to 'Back', relationships_path %>
