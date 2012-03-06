@@ -3,7 +3,7 @@
 <% end %>
 <h1>Listing assemblies</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Package</th>
     <th>Name</th>
@@ -14,7 +14,7 @@
   </tr>
 
 <% @assemblies.each do |assembly| %>
-  <tr>
+  <tr class=<%= cycle('odd', 'even')%>>
     <td><%= assembly.package_id %></td>
     <td><%= assembly.name %></td>
     <td><%= assembly.description %></td>
@@ -24,5 +24,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />

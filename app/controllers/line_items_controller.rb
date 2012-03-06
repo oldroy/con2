@@ -1,4 +1,6 @@
 class LineItemsController < ApplicationController
+  layout 'plan'
+  before_filter :authenticate_user!
   before_filter :find_plan
   before_filter :find_assembly
 

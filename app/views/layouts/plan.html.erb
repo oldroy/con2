@@ -9,7 +9,7 @@
 <body>
   <div id="container">
     <div id="header">
-        <h1><%= link_to @plan.location +  " | " + @plan.version %></h1>
+        <h1 class="plan"><%= link_to @plan.location +  " | " + @plan.version, @plan %></h1>
       <div id="user-navigation">
 
         <ul class="wat-cf">
@@ -23,13 +23,7 @@
       </div>
     </div>
     <div id="wrapper" class="wat-cf">
-      <div class="flash">
-        <% flash.each do |type, message| -%>
-          <div class="message <%= type %>">
-            <p><%= message %></p>
-          </div>
-        <% end -%>
-      </div>
+
       <div id="main">
         <div class="block" id="block-text">
         <div class="content">
@@ -40,6 +34,13 @@
           </div>
 
           <div class="inner">
+            <div class="flash">
+                              <% flash.each do |type, message| -%>
+                                <div class="message <%= type %>">
+                                  <p><%= message %></p>
+                                </div>
+                              <% end -%>
+                            </div>
             <%= yield %>
           </div>
 
@@ -48,6 +49,7 @@
         <div id="footer">
           <div class="block">
             <p>Copyright &copy; <%= Time.now.year %> 5gsi.</p>
+            <%= debug(params) if Rails.env.development? %>
           </div>      
         </div>
       </div>

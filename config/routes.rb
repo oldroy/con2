@@ -1,11 +1,10 @@
 Con2::Application.routes.draw do
 
-  resources :relationships
-
   resources :plans do
     resources :packages
     resources :components
     resources :assemblies do
+      resources :relationships
       resources :line_items
     end
   end

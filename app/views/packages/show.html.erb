@@ -18,5 +18,21 @@
   <%= @package.plan_id %>
 </p>
 
+<h2>Top-Level Assemblies</h2>
 
-<%= link_to 'All Packages', plan_packages_path(@plan) %>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+
+  </tr>
+
+<% @package.assemblies.each do |assembly| %>
+  <tr class=<%= cycle('odd', 'even')%> >
+    <td><%= assembly.name %></td>
+    <td><%= assembly.description %></td>
+    <td><%= link_to 'Show', [@plan, assembly] %></td>
+  </tr>
+<% end %>
+</table>

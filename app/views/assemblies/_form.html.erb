@@ -13,8 +13,12 @@
 
   <div class="field">
     <%= f.label :package_id %><br />
-    <%= f.number_field :package_id %>
+    <%= f.select :package_id,  options_for_select([["unassigned", nil]] + @plan.packages.collect{ |p| [p.name, p.id]}, @assembly.package_id)%>
   </div>
+    <div class="field">
+        <%= f.label :used %><br />
+        <%= f.check_box :used %>
+      </div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>

@@ -44,11 +44,11 @@ class AssembliesController < ApplicationController
   # POST /assemblies
   # POST /assemblies.json
   def create
-    @assembly = Assembly.new(params[:assembly])
+    @assembly = @plan.assemblies.build(params[:assembly])
 
     respond_to do |format|
       if @assembly.save
-        format.html { redirect_to @assembly, notice: 'Assembly was successfully created.' }
+        format.html { redirect_to [@plan, @assembly], notice: 'Assembly was successfully created.' }
         format.json { render json: @assembly, status: :created, location: @assembly }
       else
         format.html { render action: "new" }
@@ -60,11 +60,11 @@ class AssembliesController < ApplicationController
   # PUT /assemblies/1
   # PUT /assemblies/1.json
   def update
-    @assembly = Assembly.find(params[:id])
-
+    #@assembly = Assembly.find(params[:id])
+     @assembly.package_id = params[:package_id]
     respond_to do |format|
       if @assembly.update_attributes(params[:assembly])
-        format.html { redirect_to @assembly, notice: 'Assembly was successfully updated.' }
+        format.html { redirect_to [@plan, @assembly], notice: 'Assembly was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -1,6 +1,9 @@
+<% content_for :secondary_nav do %>
+   <% render 'list_new' %>
+<% end %>
 <h1>Listing components</h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Plan</th>
     <th>Part number</th>
@@ -16,7 +19,7 @@
   </tr>
 
 <% @components.each do |component| %>
-  <tr>
+  <tr class=<%= cycle('odd', 'even')%>>
     <td><%= component.plan_id %></td>
     <td><%= component.part_number %></td>
     <td><%= component.description %></td>

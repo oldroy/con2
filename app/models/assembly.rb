@@ -4,6 +4,25 @@ class Assembly < ActiveRecord::Base
   has_many :line_items
   has_many :relationships
   has_many :children, :through => :relationships
+  has_many :parents, :through => :relationships
+
+  scope :available, :conditions => { :used => false, :atype => "sub" }
+
+
+  def total
+    line_items.to_a.sum { |item| item.total }
+  end
+
+  def child_total
+    children.to_a.sum { |child| child.total }
+  end
+
+  def assembly_total
+    total + child_total
+  end
+
+
+
 
   private
   def ensure_not_referenced_by_any_line_items

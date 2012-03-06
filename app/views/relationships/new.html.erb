@@ -1,5 +1,23 @@
-<h1>New relationship</h1>
+<% content_for :secondary_nav do %>
+   <% render 'assemblies/show_edit' %>
+<% end %>
+<h1>Add sub-assemblies</h1>
 
-<%= render 'form' %>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>ID</th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<%= link_to 'Back', relationships_path %>
+<% @available_assemblies.each do |child_assembly| %>
+      <tr class=<%= cycle('odd', 'even')%>>
+    <td><%= child_assembly.name %></td>
+    <td><%= child_assembly.id %></td>
+    <td></td>
+
+    <td><%= button_to 'Add to Assembly', plan_assembly_relationships_path(@plan, @assembly, :child_id => child_assembly.id) %>
+  </tr>
+<% end %>
+</table>

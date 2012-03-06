@@ -1,9 +1,9 @@
 <% content_for :secondary_nav do %>
    <% render 'list_new' %>
 <% end %>
-<h1>Listing packages</h1>
+<h1>Listing packages for <%= @plan.location %>, v<%=@plan.version%></h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>Description</th>
@@ -14,7 +14,7 @@
   </tr>
 
 <% @packages.each do |package| %>
-  <tr>
+  <tr class=<%= cycle('odd', 'even')%>>
     <td><%= package.name %></td>
     <td><%= package.description %></td>
     <td><%= package.plan_id %></td>

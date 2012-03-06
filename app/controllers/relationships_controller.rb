@@ -1,4 +1,9 @@
 class RelationshipsController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :find_plan
+  before_filter :find_assembly
+
+  layout 'plan'
   # GET /relationships
   # GET /relationships.json
   def index
@@ -24,7 +29,7 @@ class RelationshipsController < ApplicationController
   # GET /relationships/new
   # GET /relationships/new.json
   def new
-    @relationship = Relationship.new
+    @available_assemblies = @plan.assemblies.available
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +45,15 @@ class RelationshipsController < ApplicationController
   # POST /relationships
   # POST /relationships.json
   def create
-    @relationship = Relationship.new(params[:relationship])
+    child = Assembly.find(params[:child_id])
+    @relationship = @assembly.relationships.build(child: child)
+    child = @relationship.child
+    child.used = true
+    child.save
 
     respond_to do |format|
       if @relationship.save
-        format.html { redirect_to @relationship, notice: 'Relationship was successfully created.' }
+        format.html { redirect_to [@plan, @assembly], notice: 'Relationship was successfully created.' }
         format.json { render json: @relationship, status: :created, location: @relationship }
       else
         format.html { render action: "new" }
@@ -72,12 +81,23 @@ class RelationshipsController < ApplicationController
   # DELETE /relationships/1
   # DELETE /relationships/1.json
   def destroy
-    @relationship = Relationship.find(params[:id])
+    @relationship = @assembly.relationships.find(params[:id])
+    child = @relationship.child
+    child.used = false
+    child.save
     @relationship.destroy
 
     respond_to do |format|
-      format.html { redirect_to relationships_url }
+      format.html { redirect_to [@plan, @assembly], notice: 'Relationship was deleted.' }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  def find_plan
+    @plan = Plan.find(params[:plan_id])
+  end
+  def find_assembly
+    @assembly = @plan.assemblies.find(params[:assembly_id])
   end
 end

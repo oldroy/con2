@@ -1,5 +1,6 @@
 class PackagesController < ApplicationController
   layout "plan"
+  before_filter :authenticate_user!
   before_filter :find_plan
   before_filter :find_package, :only => [:show, :edit, :update, :destroy]
   # GET /packages

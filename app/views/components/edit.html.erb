@@ -1,5 +1,7 @@
+<% content_for :secondary_nav do %>
+   <% render 'show_edit' %>
+<% end %>
 <h1>Editing component</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Back', plan_components_path(@plan) %>
+<%= link_to 'All Components', plan_components_path(@plan) %>

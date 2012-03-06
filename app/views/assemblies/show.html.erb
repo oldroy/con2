@@ -1,12 +1,6 @@
 <% content_for :secondary_nav do %>
    <% render 'show_edit' %>
 <% end %>
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Package:</b>
-  <%= @assembly.package_id %>
-</p>
 
 <p>
   <b>Name:</b>
@@ -14,17 +8,71 @@
 </p>
 
 <p>
+  <b>Package:</b>
+  <%= @assembly.package_id %>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @assembly.description %>
 </p>
 
+<p><b>Assembly Sub Total: </b><%= @assembly.assembly_total %></p>
 
-<%= link_to 'All Assemblies', plan_assemblies_path(@plan) %>
 
-<h2>Assembly Items</h2>
-<h3>Item / Quantity  /  WBS Category</h3>
+<table class="table">
+  <tr>
+    <th><b>Assembly Items</b></th>
+    <th>Quantity</th>
+    <th>WBS Category</th>
+    <th>Unit cost</th>
+    <th>Total</th>
+     <th></th>
+    <th></th>
+  </tr>
+
 <% @assembly.line_items.each do |item| %>
-<%= item.component.description %> | <%= item.quantity %> | <%=  item.wbs_category %>
-    | <%=  link_to "Edit", edit_plan_assembly_line_item_path(@plan, @assembly, item) %>
-    | <%= link_to 'Delete', [@plan, @assembly, item], confirm: "Are your sure?", :method => :delete %><br />
+      <tr class=<%= cycle('odd', 'even')%>>
+    <td><%= item.component.description %></td>
+    <td><%= item.quantity %></td>
+    <td><%= item.wbs_category %></td>
+    <td><%= item.component.unit_cost %></td>
+    <td><%= item.total %></td>
+    <td><%=  link_to "Edit", edit_plan_assembly_line_item_path(@plan, @assembly, item) %></td>
+    <td><%= link_to 'Delete', [@plan, @assembly, item], confirm: "Are your sure?", :method => :delete %></td>
+  </tr>
 <% end %>
+  <tfoot>
+  <tr>
+    <td colspan="4"></td>
+    <td colspan="3"><b>Assembly Line_items Total: <%= @assembly.total %></b></td>
+  </tr></tfoot>
+</table>
+
+
+
+<table class="table">
+  <tr>
+    <th><b>Sub-Assembly Name</b></th>
+    <th>Description</th>
+    <th>Items Total:</th>
+    <th></th>
+    <th></th>
+     <th></th>
+  </tr>
+
+  <% @assembly.relationships.each do |relationship| %>
+      <tr class=<%= cycle('odd', 'even')%>>
+    <td><%= relationship.child.name %></td>
+    <td><%= relationship.child.description %></td>
+    <td><%= relationship.child.total %></td>
+    <td><%= link_to "Show", plan_assembly_path(@plan, relationship.child) %></td>
+    <td><%= link_to "Edit", edit_plan_assembly_path(@plan, relationship.child) %></td>
+    <td><%= link_to 'Delete', [@plan, @assembly, relationship], confirm: "Are your sure?", :method => :delete %></td>
+  </tr>
+      <tfoot><tr>
+        <td colspan="3"></td>
+        <td colspan="3"><b>Assembly Child Items Total: <%= @assembly.child_total %></b></td>
+        </tr></tfoot>
+<% end %>
+</table>

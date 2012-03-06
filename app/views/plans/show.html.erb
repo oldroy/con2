@@ -1,3 +1,6 @@
+<% content_for :secondary_nav do %>
+   <% render 'show_edit' %>
+<% end %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -19,7 +22,3 @@
   <b>Notes:</b>
   <%= @plan.notes %>
 </p>
-
-
-<%= link_to 'Edit', edit_plan_path(@plan) %> |
-<%= link_to 'Back', plans_path %>

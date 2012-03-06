@@ -1,5 +1,6 @@
 class ComponentsController < ApplicationController
   layout "plan"
+  before_filter :authenticate_user!
   before_filter :find_plan
     before_filter :find_component, :only => [:show, :edit, :update, :destroy]
     # GET /components

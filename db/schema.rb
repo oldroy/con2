@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301191531) do
+ActiveRecord::Schema.define(:version => 20120306153958) do
 
   create_table "assemblies", :force => true do |t|
     t.integer  "package_id"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20120301191531) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "plan_id"
+    t.string   "atype"
+    t.boolean  "used"
   end
 
   create_table "components", :force => true do |t|
