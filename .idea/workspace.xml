@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b39bd337-9673-427d-beb8-75d61469b7d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/assemblies/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/assemblies/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/line_items/new.html.erb" afterPath="$PROJECT_DIR$/app/views/line_items/new.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/relationships/new.html.erb" afterPath="$PROJECT_DIR$/app/views/relationships/new.html.erb" />
     </list>
     <ignored path="con2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,15 +38,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="57" selection-start="947" selection-end="947" vertical-scroll-proportion="-15.916667">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="plan.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/plan.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -64,10 +56,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/assemblies/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="31" selection-start="772" selection-end="772" vertical-scroll-proportion="0.41466346">
+            <state line="23" column="31" selection-start="772" selection-end="772" vertical-scroll-proportion="-14.375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/line_items/new.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="56" selection-start="156" selection-end="156" vertical-scroll-proportion="-3.125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="new.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/relationships/new.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="47" selection-start="132" selection-end="132" vertical-scroll-proportion="0.05408654">
               <folding />
             </state>
           </provider>
@@ -109,15 +119,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="assemblies_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/assemblies_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="65" selection-start="1572" selection-end="1572" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -136,8 +137,6 @@
         <option value="$PROJECT_DIR$/app/views/components/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/components/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/assemblies/edit.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/line_items/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/relationships/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/assemblies_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/relationship.rb" />
@@ -147,6 +146,8 @@
         <option value="$PROJECT_DIR$/app/models/assembly.rb" />
         <option value="$PROJECT_DIR$/app/controllers/relationships_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/assemblies/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/line_items/new.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/relationships/new.html.erb" />
       </list>
     </option>
   </component>
@@ -1049,20 +1050,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/line_items/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="42" selection-start="364" selection-end="364" vertical-scroll-proportion="-9.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/relationships/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="37" selection-start="557" selection-end="557" vertical-scroll-proportion="-13.75">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="57" selection-start="947" selection-end="947" vertical-scroll-proportion="-15.916667">
@@ -1142,7 +1129,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/assemblies/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="31" selection-start="772" selection-end="772" vertical-scroll-proportion="0.41466346">
+        <state line="23" column="31" selection-start="772" selection-end="772" vertical-scroll-proportion="-14.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/line_items/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="56" selection-start="156" selection-end="156" vertical-scroll-proportion="-3.125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/relationships/new.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="47" selection-start="132" selection-end="132" vertical-scroll-proportion="0.05408654">
           <folding />
         </state>
       </provider>
